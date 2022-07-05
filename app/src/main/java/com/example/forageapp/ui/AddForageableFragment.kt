@@ -14,7 +14,6 @@ import com.example.forageapp.databinding.FragmentAddForageableBinding
 import com.example.forageapp.model.Forageable
 import com.example.forageapp.ui.viewmodel.ForageableViewModel
 
-
 /**
  * A fragment to enter data for a new [Forageable] or edit data for an existing [Forageable].
  * [Forageable]s can be saved or deleted from this fragment.
