@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Запасы</string>
+    <string name="action_settings">Настройки</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="list_fragment_label">Список продуктов</string>
+    <string name="add_fragment_label">Добавить продукт</string>
+
+    <string name="forageable_name">Наименование</string>
+    <string name="forageable_location">Местоположение</string>
+    <string name="in_season">Сезонный продукт</string>
+    <string name="out_of_season">Несезонный продукт</string>
+    <string name="notes">Заметки</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+</resources>
