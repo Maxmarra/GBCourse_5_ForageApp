@@ -30,9 +30,6 @@ class AddForageableFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    // TODO: Refactor the creation of the view model to take an instance of
-    //  ForageableViewModelFactory. The factory should take an instance of the Database retrieved
-    //  from BaseApplication
     private val viewModel: ForageableViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -52,6 +49,10 @@ class AddForageableFragment : Fragment() {
 
             // TODO: Observe a Forageable that is retrieved by id, set the forageable variable,
             //  and call the bindForageable method
+            viewModel.retrieveForageable(id).observe(this.viewLifecycleOwner){
+                selectedForagable -> forageable = selectedForagable
+                bindForageable(forageable)
+            }
 
             binding.deleteBtn.visibility = View.VISIBLE
             binding.deleteBtn.setOnClickListener {

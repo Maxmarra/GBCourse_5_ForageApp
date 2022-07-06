@@ -12,16 +12,8 @@ import com.example.forageapp.databinding.FragmentForageableListBinding
 import com.example.forageapp.ui.adapter.ForageableListAdapter
 import com.example.forageapp.ui.viewmodel.ForageableViewModel
 
-/**
- * A fragment to view the list of [Forageable]s stored in the database.
- * Clicking on a [Forageable] list item launches the [ForageableDetailFragment].
- * Clicking the [FloatingActionButton] launched the [AddForageableFragment]
- */
 class ForageableListFragment : Fragment() {
 
-    // TODO: Refactor the creation of the view model to take an instance of
-    //  ForageableViewModelFactory. The factory should take an instance of the Database retrieved
-    //  from BaseApplication
     private val viewModel: ForageableViewModel by activityViewModels()
 
     private var _binding: FragmentForageableListBinding? = null
@@ -48,7 +40,10 @@ class ForageableListFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        // TODO: observe the list of forageables from the view model and submit it the adapter
+
+        viewModel.allData.observe(this.viewLifecycleOwner){
+            adapter.submitList(it)
+        }
 
         binding.apply {
             recyclerView.adapter = adapter

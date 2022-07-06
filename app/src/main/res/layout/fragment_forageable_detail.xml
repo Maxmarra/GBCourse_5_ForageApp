@@ -107,6 +107,7 @@
         android:layout_margin="@dimen/fab_margin"
         android:src="@drawable/ic_edit_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="any" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,9 +23,6 @@ class ForageableDetailFragment : Fragment() {
 
     private val navigationArgs: ForageableDetailFragmentArgs by navArgs()
 
-    // TODO: Refactor the creation of the view model to take an instance of
-    //  ForageableViewModelFactory. The factory should take an instance of the Database retrieved
-    //  from BaseApplication
     private val viewModel: ForageableViewModel by activityViewModels()
 
     private lateinit var forageable: Forageable
@@ -44,9 +41,13 @@ class ForageableDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val id = navigationArgs.id
-        // TODO: Observe a forageable that is retrieved by id, set the forageable variable,
-        //  and call the bind forageable method
+        viewModel.retrieveForageable(id).observe(this.viewLifecycleOwner){
+                selectedForagable->
+            forageable = selectedForagable
+            bindForageable()
+        }
     }
 
     private fun bindForageable() {
