@@ -15,10 +15,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideForageDatabase(app: Application): ForageDatabase {
+    fun provideForageDatabase(app: Application): ItemRoomDatabase {
         return Room.databaseBuilder(
             app,
-            ForageDatabase::class.java,
+            ItemRoomDatabase::class.java,
             "item_database"
         ).fallbackToDestructiveMigration()
          .build()
@@ -26,7 +26,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideForageRepository(db: ForageDatabase):
+    fun provideForageRepository(db: ItemRoomDatabase):
             ForageRepository {
         return ForageRepositoryImpl(db.foragableDao)
     }

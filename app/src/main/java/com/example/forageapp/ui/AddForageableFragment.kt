@@ -11,12 +11,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.forageapp.R
 import com.example.forageapp.databinding.FragmentAddForageableBinding
-import com.example.forageapp.model.Forageable
+import com.example.forageapp.model.Item
 import com.example.forageapp.ui.viewmodel.ForageableViewModel
 
 /**
- * A fragment to enter data for a new [Forageable] or edit data for an existing [Forageable].
- * [Forageable]s can be saved or deleted from this fragment.
+ * A fragment to enter data for a new [Item] or edit data for an existing [Item].
+ * [Item]s can be saved or deleted from this fragment.
  */
 class AddForageableFragment : Fragment() {
 
@@ -24,7 +24,7 @@ class AddForageableFragment : Fragment() {
 
     private var _binding: FragmentAddForageableBinding? = null
 
-    private lateinit var forageable: Forageable
+    private lateinit var forageable: Item
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -65,7 +65,7 @@ class AddForageableFragment : Fragment() {
         }
     }
 
-    private fun deleteForageable(forageable: Forageable) {
+    private fun deleteForageable(forageable: Item) {
         viewModel.deleteForageable(forageable)
         findNavController().navigate(
             R.id.action_addForageableFragment_to_forageableListFragment
@@ -101,7 +101,7 @@ class AddForageableFragment : Fragment() {
         }
     }
 
-    private fun bindForageable(forageable: Forageable) {
+    private fun bindForageable(forageable: Item) {
         binding.apply{
             nameInput.setText(forageable.name, TextView.BufferType.SPANNABLE)
             locationAddressInput.setText(forageable.address, TextView.BufferType.SPANNABLE)

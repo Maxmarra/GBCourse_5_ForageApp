@@ -12,12 +12,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.forageapp.R
 import com.example.forageapp.databinding.FragmentForageableDetailBinding
-import com.example.forageapp.model.Forageable
+import com.example.forageapp.model.Item
 import com.example.forageapp.ui.viewmodel.ForageableViewModel
 
 /**
- * A fragment to display the details of a [Forageable] currently stored in the database.
- * The [AddForageableFragment] can be launched from this fragment to edit the [Forageable]
+ * A fragment to display the details of a [Item] currently stored in the database.
+ * The [AddForageableFragment] can be launched from this fragment to edit the [Item]
  */
 class ForageableDetailFragment : Fragment() {
 
@@ -25,7 +25,7 @@ class ForageableDetailFragment : Fragment() {
 
     private val viewModel: ForageableViewModel by activityViewModels()
 
-    private lateinit var forageable: Forageable
+    private lateinit var forageable: Item
 
     private var _binding: FragmentForageableDetailBinding? = null
     private val binding get() = _binding!!

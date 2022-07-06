@@ -1,24 +1,24 @@
 package com.example.forageapp.data
 
 import androidx.room.*
-import com.example.forageapp.model.Forageable
+import com.example.forageapp.model.Item
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface ForageableDao {
+interface ItemDao {
 
     @Query("select * from forageable_database order by name asc")
-    fun getForageables(): Flow<List<Forageable>>
+    fun getForageables(): Flow<List<Item>>
 
     @Query("select * from forageable_database where id = :id")
-    fun getForageable(id: Long): Flow<Forageable>
+    fun getForageable(id: Long): Flow<Item>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(forageable: Forageable)
+    fun insert(forageable: Item)
 
     @Update
-    fun update(forageable: Forageable)
+    fun update(forageable: Item)
 
     @Delete
-    fun delete(forageable: Forageable)
+    fun delete(forageable: Item)
 }

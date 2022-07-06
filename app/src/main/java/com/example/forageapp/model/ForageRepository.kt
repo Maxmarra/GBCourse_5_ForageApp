@@ -1,17 +1,16 @@
 package com.example.forageapp.model
 
-import androidx.room.*
 import kotlinx.coroutines.flow.Flow
 
 interface ForageRepository {
 
-    fun getForageables(): Flow<List<Forageable>>
+    fun getForageables(): Flow<List<Item>>
 
-    fun getForageable(id: Long): Flow<Forageable>
+    fun getForageable(id: Long): Flow<Item>
 
-    fun insert(forageable: Forageable)
+    fun insert(forageable: Item)
 
-    fun update(forageable: Forageable)
+    fun update(forageable: Item)
 
-    fun delete(forageable: Forageable)
+    fun delete(forageable: Item)
 }

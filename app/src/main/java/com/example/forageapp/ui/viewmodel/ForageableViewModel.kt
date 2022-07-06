@@ -1,9 +1,8 @@
 package com.example.forageapp.ui.viewmodel
 
 import androidx.lifecycle.*
-import com.example.forageapp.data.ForageableDao
 import com.example.forageapp.model.ForageRepository
-import com.example.forageapp.model.Forageable
+import com.example.forageapp.model.Item
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -14,7 +13,7 @@ class ForageableViewModel @Inject constructor(
     private val repository: ForageRepository
 ): ViewModel() {
 
-    val allData: LiveData<List<Forageable>> = repository.getForageables().asLiveData()
+    val allData: LiveData<List<Item>> = repository.getForageables().asLiveData()
     fun retrieveForageable(id:Long) = repository.getForageable(id).asLiveData()
 
     fun addForageable(
@@ -23,7 +22,7 @@ class ForageableViewModel @Inject constructor(
         inSeason: Boolean,
         notes: String
     ) {
-        val forageable = Forageable(
+        val forageable = Item(
             name = name,
             address = address,
             inSeason = inSeason,
@@ -41,7 +40,7 @@ class ForageableViewModel @Inject constructor(
         inSeason: Boolean,
         notes: String
     ) {
-        val forageable = Forageable(
+        val forageable = Item(
             id = id,
             name = name,
             address = address,
@@ -53,7 +52,7 @@ class ForageableViewModel @Inject constructor(
         }
     }
 
-    fun deleteForageable(forageable: Forageable) {
+    fun deleteForageable(forageable: Item) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.delete(forageable)
         }

@@ -6,31 +6,31 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.forageapp.databinding.ListItemForageableBinding
-import com.example.forageapp.model.Forageable
+import com.example.forageapp.model.Item
 
 /**
- * ListAdapter for the list of [Forageable]s retrieved from the database
+ * ListAdapter for the list of [Item]s retrieved from the database
  */
 class ForageableListAdapter(
-    private val clickListener: (Forageable) -> Unit
-) : ListAdapter<Forageable, ForageableListAdapter.ForageableViewHolder>(DiffCallback) {
+    private val clickListener: (Item) -> Unit
+) : ListAdapter<Item, ForageableListAdapter.ForageableViewHolder>(DiffCallback) {
 
     class ForageableViewHolder(
         private var binding: ListItemForageableBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(forageable: Forageable) {
+        fun bind(forageable: Item) {
             binding.forageable = forageable
             binding.executePendingBindings()
         }
     }
 
-    companion object DiffCallback: DiffUtil.ItemCallback<Forageable>() {
-        override fun areItemsTheSame(oldItem: Forageable, newItem: Forageable): Boolean {
+    companion object DiffCallback: DiffUtil.ItemCallback<Item>() {
+        override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
             return oldItem.id == newItem.id
         }
 
-        override fun areContentsTheSame(oldItem: Forageable, newItem: Forageable): Boolean {
+        override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
             return oldItem == newItem
         }
 
