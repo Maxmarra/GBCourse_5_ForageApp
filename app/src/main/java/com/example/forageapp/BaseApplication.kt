@@ -9,5 +9,6 @@ import com.example.forageapp.data.ForageDatabase
  */
 class BaseApplication : Application() {
 
-    // TODO: provide a ForageDatabase value by lazy here
+    // TODO+: provide a ForageDatabase value by lazy here
+    val database: ForageDatabase by lazy { ForageDatabase.getDatabase(this) }
 }

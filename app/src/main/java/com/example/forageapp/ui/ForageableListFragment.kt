@@ -7,10 +7,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
+import com.example.forageapp.BaseApplication
 import com.example.forageapp.R
 import com.example.forageapp.databinding.FragmentForageableListBinding
 import com.example.forageapp.ui.adapter.ForageableListAdapter
 import com.example.forageapp.ui.viewmodel.ForageableViewModel
+import com.example.forageapp.ui.viewmodel.ForageableViewModelFactory
 
 /**
  * A fragment to view the list of [Forageable]s stored in the database.
@@ -19,10 +21,15 @@ import com.example.forageapp.ui.viewmodel.ForageableViewModel
  */
 class ForageableListFragment : Fragment() {
 
-    // TODO: Refactor the creation of the view model to take an instance of
+    // TODO+: Refactor the creation of the view model to take an instance of
     //  ForageableViewModelFactory. The factory should take an instance of the Database retrieved
     //  from BaseApplication
-    private val viewModel: ForageableViewModel by activityViewModels()
+    private val viewModel: ForageableViewModel by activityViewModels{
+        ForageableViewModelFactory(
+            (activity?.application as BaseApplication).database.foragableDao()
+        )
+    }
+
 
     private var _binding: FragmentForageableListBinding? = null
 
