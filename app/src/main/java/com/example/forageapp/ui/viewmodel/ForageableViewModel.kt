@@ -1,5 +1,6 @@
 package com.example.forageapp.ui.viewmodel
 
+import android.content.ClipData
 import androidx.lifecycle.*
 import com.example.forageapp.data.ForageableDao
 import com.example.forageapp.model.Forageable
@@ -17,7 +18,7 @@ class ForageableViewModel(
 ): ViewModel() {
 
     // TODO+: create a property to set to a list of all forageables from the DAO
-    val allData = forageableDao.getForageables().asLiveData()
+    val allData: LiveData<List<Forageable>> = forageableDao.getForageables().asLiveData()
 
     // TODO+: create method that takes id: Long as a parameter and retrieve a Forageable from the
     //  database by id via the DAO.

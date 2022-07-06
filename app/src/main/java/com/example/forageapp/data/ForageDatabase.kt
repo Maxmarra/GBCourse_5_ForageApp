@@ -24,9 +24,10 @@ abstract class ForageDatabase : RoomDatabase(){
         fun getDatabase(context: Context): ForageDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    context,
+                    context.applicationContext,
                     ForageDatabase::class.java,
                     "app_database")
+                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
 
