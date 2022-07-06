@@ -20,7 +20,7 @@ object AppModule {
             app,
             ItemRoomDatabase::class.java,
             "item_database"
-        ).fallbackToDestructiveMigration()
+        ).allowMainThreadQueries()
          .build()
     }
 
