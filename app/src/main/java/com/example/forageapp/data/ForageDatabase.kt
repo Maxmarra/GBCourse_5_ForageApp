@@ -27,7 +27,7 @@ abstract class ForageDatabase : RoomDatabase(){
                     context.applicationContext,
                     ForageDatabase::class.java,
                     "app_database")
-                    .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
                     .build()
                 INSTANCE = instance
 
